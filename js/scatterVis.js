@@ -151,7 +151,7 @@ class ScatterVis {
             .text('LARGER RADIUS: MORE REVENUE')
 
         vis.svg.append('text')
-            .attr('x', vis.width/7*6)
+            .attr('x', vis.width/6*5)
             .attr('y', vis.height - 40)
             .text('PINK: PRINCESS MOVIES')
             .style('fill', '#e75480')
@@ -159,9 +159,9 @@ class ScatterVis {
 
 
         vis.svg.append('text')
-            .attr('x', vis.width/7*6)
+            .attr('x', vis.width/6*5)
             .attr('y', vis.height - 40 - 25)
-            .text('GREY: NON-PRINCESS MOVIES ')
+            .text('GREY: NON-PRINCESS MOVIES')
             .style('fill', 'grey')
             .style('font-size', '15px')
 
