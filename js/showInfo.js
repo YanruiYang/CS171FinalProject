@@ -26,6 +26,7 @@ function showPrincessInfo(){
     myWheelVis.updateVis();
     myMapVis.updateVis();
     myNetworkVis.updateVis();
+    myScatterVis.updateVis();
 }
 function showDetailInfo(){
     if (selectedPrincess === "Belle"){

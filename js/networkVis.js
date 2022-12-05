@@ -136,13 +136,13 @@ class NetworkVis {
                 let nodeName = document.getElementById('node-name').innerText
                 let actalName = nodeName.replace(/\s/g, '')
                 if(lineName.includes(actalName)){
-                    let diff = (diffMe, diffBy) => diffMe.split(diffBy).join('')
-                    let string1 = diff(lineName, actalName)
-                    let string2 = diff(string1, 'line')
-                    finalString = string2.trim()+'text'
-                    d3.selectAll('.'+finalString).style('color', 'red')
-                    document.getElementById("connect-img").src = "img/node-img/" + finalString.replace('text', '') + '.jpeg'
-                    d3.selectAll('#connect-img').style('border', '5px solid red')
+                    let diff = (diffMe, diffBy) => diffMe.split(diffBy).join('');
+                    let string1 = diff(lineName, actalName);
+                    let string2 = diff(string1, 'line');
+                    finalString = string2.trim()+'text';
+                    d3.selectAll('.'+finalString).style('color', 'red');
+                    document.getElementById("connect-img").src = "img/node-img/" + finalString.replace('text', '') + ".jpeg";
+                    d3.selectAll('#connect-img').style('border', '5px solid red');
                 }
 
             })
@@ -208,7 +208,7 @@ class NetworkVis {
                 });
                 document.getElementById("node-name").innerText = d.nameDisplay;
                 document.getElementById("node-connections").innerHTML = connections;
-                document.getElementById("node-img").src = "img/node-img/" + d.name + '.jpeg'
+                document.getElementById("node-img").src = "img/node-img/" + d.name + ".jpeg";
                 d3.selectAll('.' + name)
                     .transition()
                     .style('opacity', '1')
