@@ -284,24 +284,6 @@ class NetworkVis {
         vis.simulation.alpha(1).restart();
     }
 
-    // dragStarted(event, d) {
-    //     let vis = this;
-    //     if (!event.active) vis.simulation.alphaTarget(0.3).restart();
-    //     d.fx = d.x;
-    //     d.fy = d.y;
-    // }
-    //
-    // dragging(event, d) {
-    //     d.fx = event.x;
-    //     d.fy = event.y;
-    // }
-    //
-    // dragEnded(event, d) {
-    //     let vis = this;
-    //     if (!event.active) vis.simulation.alphaTarget(0);
-    //     d.fx = null;
-    //     d.fy = null;
-    // }
 
     fixBounds() {
         let vis = this;

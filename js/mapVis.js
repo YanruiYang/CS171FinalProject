@@ -11,7 +11,6 @@ class MapVis {
         this.mapData = mapData;
         this.princessData = princessData;
         this.colors = ["#D1F0EE", "#FDA3B2", "#EDD6FE", "#F6ECBD", "#D0F4D0", "#F6CFDF", "#ECECEC"]
-        //this.highlight = ["#37EDE1", "#F74D69", "#C579FC", "#F5D74C", "#D0F4D0", "#72F272", "#B5B5B5"]
 
         this.initVis()
     }
@@ -43,8 +42,7 @@ class MapVis {
             .attr("d", d3.geoPath()
                 .projection(projection)
             )
-            // .style("stroke", "grey")
-            // .attr('stroke-width', '1px')
+
 
         // background for legend
         vis.background = vis.svg.append('rect')
@@ -143,46 +141,22 @@ class MapVis {
                     let princess = vis.princessData[countries.indexOf(countryAlpha)].princess;
                     if (princess === "Cinderella") {
                         return vis.colors[0]
-                        // if (selectedPrincess === "Cinderella") {
-                        //     return vis.highlight[0]
-                        // } else {
-                        //     return vis.colors[0]
-                        // }
+
                     } else if (princess === "Elsa") {
                         return vis.colors[1]
-                        // if (selectedPrincess === "Elsa") {
-                        //     return vis.highlight[1]
-                        // } else {
-                        //     return vis.colors[1]
-                        // }
+
                     } else if (princess === "Rapunzel") {
                         return vis.colors[2]
-                        // if (selectedPrincess === "Rapunzel") {
-                        //     return vis.highlight[2]
-                        // } else {
-                        //     return vis.colors[2]
-                        // }
+
                     } else if (princess === "Belle") {
                         return vis.colors[3]
-                        // if (selectedPrincess === "Belle") {
-                        //     return vis.highlight[3]
-                        // } else {
-                        //     return vis.colors[3]
-                        // }
+
                     } else if (princess === "Ariel") {
                         return vis.colors[4]
-                        // if (selectedPrincess === "Cinderella") {
-                        //     return vis.highlight[4]
-                        // } else {
-                        //     return vis.colors[4]
-                        // }
+
                     } else if (princess === "Snow White") {
                         return vis.colors[5]
-                        // if (selectedPrincess === "Cinderella") {
-                        //     return vis.highlight[5]
-                        // } else {
-                        //     return vis.colors[5]
-                        // }
+
                     }
                 } else {
                     return "#ECECEC";
@@ -236,46 +210,22 @@ class MapVis {
                             let princess = vis.princessData[countries.indexOf(countryAlpha)].princess;
                             if (princess === "Cinderella") {
                                 return vis.colors[0]
-                                // if (selectedPrincess === "Cinderella") {
-                                //     return vis.highlight[0]
-                                // } else {
-                                //     return vis.colors[0]
-                                // }
+
                             } else if (princess === "Elsa") {
                                 return vis.colors[1]
-                                // if (selectedPrincess === "Elsa") {
-                                //     return vis.highlight[1]
-                                // } else {
-                                //     return vis.colors[1]
-                                // }
+
                             } else if (princess === "Rapunzel") {
                                 return vis.colors[2]
-                                // if (selectedPrincess === "Rapunzel") {
-                                //     return vis.highlight[2]
-                                // } else {
-                                //     return vis.colors[2]
-                                // }
+
                             } else if (princess === "Belle") {
                                 return vis.colors[3]
-                                // if (selectedPrincess === "Belle") {
-                                //     return vis.highlight[3]
-                                // } else {
-                                //     return vis.colors[3]
-                                // }
+
                             } else if (princess === "Ariel") {
                                 return vis.colors[4]
-                                // if (selectedPrincess === "Cinderella") {
-                                //     return vis.highlight[4]
-                                // } else {
-                                //     return vis.colors[4]
-                                // }
+
                             } else if (princess === "Snow White") {
                                 return vis.colors[5]
-                                // if (selectedPrincess === "Cinderella") {
-                                //     return vis.highlight[5]
-                                // } else {
-                                //     return vis.colors[5]
-                                // }
+
                             }
                         } else {
                             return "#ECECEC";
