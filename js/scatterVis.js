@@ -16,7 +16,7 @@ class ScatterVis {
     initVis() {
         let vis = this;
 
-        vis.margin = {top: 50, right: 50, bottom: 50, left: 50};
+        vis.margin = {top: 70, right: 50, bottom: 50, left: 50};
         vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
         vis.height = document.getElementById(vis.parentElement).getBoundingClientRect().height - vis.margin.top - vis.margin.bottom;
 
@@ -151,19 +151,19 @@ class ScatterVis {
             .text('LARGER RADIUS: MORE REVENUE')
 
         vis.svg.append('text')
-            .attr('x', vis.width - 400)
+            .attr('x', vis.width/9*8)
             .attr('y', vis.height - 40)
             .text('PINK: PRINCESS MOVIES')
             .style('fill', '#e75480')
-            .style('font-size', '25px')
+            .style('font-size', '15px')
 
 
         vis.svg.append('text')
-            .attr('x', vis.width - 400)
+            .attr('x', vis.width/9*8)
             .attr('y', vis.height - 40 - 25)
             .text('GREY: NON-PRINCESS MOVIES ')
             .style('fill', 'grey')
-            .style('font-size', '25px')
+            .style('font-size', '15px')
 
         let textData = ['','','','']
 
@@ -285,14 +285,14 @@ class ScatterVis {
             .enter()
             .append('text')
             .attr('class','textDesc')
-            .attr('x', vis.width - 800)
+            .attr('x', vis.width*6/10)
             .attr('y', function(d, i){
-                return vis.height - 375 + (i-1)*40
+                return vis.height/3*2 + (i-1)*40
             })
             .text(function(d){
                 return d.split('-')[0]
             })
-            .style('font-size', '30px')
+            .style('font-size', '25px')
             .append('tspan')
             .style('stroke', 'red')
             .style('stroke-width', '1px')
@@ -300,13 +300,13 @@ class ScatterVis {
             .text(function(d){
                 return d.split('-')[1]
             })
-            .style('font-size', '40px')
+            .style('font-size', '30px')
             .append('tspan')
             .style('fill', 'black')
             .text(function(d){
                 return d.split('-')[2]
             })
-            .style('font-size', '30px')
+            .style('font-size', '25px')
             .style('stroke-width', '0px')
 
         vis.textDesc.exit().remove();
