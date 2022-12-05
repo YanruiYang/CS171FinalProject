@@ -248,6 +248,16 @@ class ScatterVis {
                 .style('fill', "#e75480")
                 .attr('stroke', 'white')
                 .attr('stroke-width', '1px')
+
+            vis.svg.selectAll('.Cinderella')
+                .style('fill', "#e75480")
+                .attr('stroke', 'white')
+                .attr('stroke-width', '1px')
+
+            vis.svg.selectAll('.Elsa')
+                .style('fill', "#e75480")
+                .attr('stroke', 'white')
+                .attr('stroke-width', '1px')
         }
 
         console.log(princessColors[selectedPrincess])
