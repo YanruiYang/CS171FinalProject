@@ -106,10 +106,10 @@ class ScatterVis {
             .attr('fill', 'black');
 
         vis.svg.append("line")
-            .attr("x1", vis.width-100)
+            .attr("x1", vis.width-50)
             // .attr("y1", vis.height-50)
             .attr("y1", 50)
-            .attr("x2", vis.width-50)
+            .attr("x2", vis.width-0)
             // .attr("y2", vis.height-50)
             .attr("y2", 50)
             .attr("stroke-width", 5)
@@ -135,7 +135,7 @@ class ScatterVis {
             .attr('marker-start', 'url(#arrow1)')
 
         vis.svg.append('text')
-            .attr('x', vis.width - 300)
+            .attr('x', vis.width - 250)
             // .attr('y', vis.height - 47.5)
             .attr('y', 55)
             .text('HIGHER X: MORE VOTES ')
@@ -151,7 +151,7 @@ class ScatterVis {
             .text('LARGER RADIUS: MORE REVENUE')
 
         vis.svg.append('text')
-            .attr('x', vis.width/9*8)
+            .attr('x', vis.width/7*6)
             .attr('y', vis.height - 40)
             .text('PINK: PRINCESS MOVIES')
             .style('fill', '#e75480')
@@ -159,7 +159,7 @@ class ScatterVis {
 
 
         vis.svg.append('text')
-            .attr('x', vis.width/9*8)
+            .attr('x', vis.width/7*6)
             .attr('y', vis.height - 40 - 25)
             .text('GREY: NON-PRINCESS MOVIES ')
             .style('fill', 'grey')
@@ -287,7 +287,7 @@ class ScatterVis {
             .attr('class','textDesc')
             .attr('x', vis.width*6/10)
             .attr('y', function(d, i){
-                return vis.height/3*2 + (i-1)*40
+                return vis.height/10*6 + (i-1)*35
             })
             .text(function(d){
                 return d.split('-')[0]
