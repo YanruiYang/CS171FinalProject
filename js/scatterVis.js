@@ -171,13 +171,6 @@ class ScatterVis {
             .data(textData)
             .attr('class', 'textDesc');
 
-        //todo: add text comparing your 'personal' princess with the one that is hovered over right now;
-        //this should be on the bottom right of the graph - where it is pretty empty
-        //maybe show more specific stats for the pricesses? comparison via radar plot?
-
-        //todo: show your 'personal' princess with a cartoon face in the chart.
-
-
         vis.wrangleData();
     }
 
@@ -206,8 +199,6 @@ class ScatterVis {
                 } else {
                     textblock = `<h3>${d.Princess}</h3>`
                 }
-                // console.log(d.Princess)
-                //todo: maybe include princess cartoon face?
                 vis.tooltip
                     .style("opacity", 1)
                     .style("left", event.pageX + 20 + "px")
@@ -252,6 +243,11 @@ class ScatterVis {
 
         if (selectedPrincess == null){
             selectedPrincess = 'Belle'
+        } else {
+            vis.svg.selectAll('.Belle')
+                .style('fill', "#e75480")
+                .attr('stroke', 'white')
+                .attr('stroke-width', '1px')
         }
 
         console.log(princessColors[selectedPrincess])
