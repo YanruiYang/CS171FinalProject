@@ -16,6 +16,8 @@ class ScatterVis {
     initVis() {
         let vis = this;
 
+        let princessColors = {'Cinderella':'#99b8d8', 'Elsa':'#7498c7', 'Belle':'#fcee8f'}
+
         vis.margin = {top: 50, right: 50, bottom: 50, left: 50};
         vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
         vis.height = document.getElementById(vis.parentElement).getBoundingClientRect().height - vis.margin.top - vis.margin.bottom;
@@ -69,7 +71,7 @@ class ScatterVis {
             })
             .style('opacity', function(d){
                 if (d.Princess === "None"){
-                    return 0.2
+                    return 0.75
                 } else {return 1}
             })
 

@@ -120,12 +120,39 @@ class NetworkVis {
 
         vis.edges.exit().remove()
 
+        let finalString = ''
+
         vis.edgeEnter = vis.edges.enter()
             .append('line')
             .style('stroke', 'grey')
             .style('stroke-width', d => 10**(d.score/40))
             .attr('class', function(d){
                 return d.name1 + ' ' + d.name2 + ' ' + 'line'
+            })
+            .on('mouseover', function(event, d){
+                d3.select(this)
+                    .style('stroke', 'red')
+                let lineName = this.className.baseVal
+                let nodeName = document.getElementById('node-name').innerText
+                let actalName = nodeName.replace(/\s/g, '')
+                if(lineName.includes(actalName)){
+                    let diff = (diffMe, diffBy) => diffMe.split(diffBy).join('')
+                    let string1 = diff(lineName, actalName)
+                    let string2 = diff(string1, 'line')
+                    finalString = string2.trim()+'text'
+                    d3.selectAll('.'+finalString).style('color', 'red')
+                    document.getElementById("connect-img").src = "img/node-img/" + finalString.replace('text', '') + '.jpeg'
+                    d3.selectAll('#connect-img').style('border', '5px solid red')
+                }
+
+            })
+            .on('mouseout', function(event, d){
+                d3.select(this)
+                    .style('stroke', 'grey')
+                d3.selectAll('.'+finalString).style('color', 'black')
+                let pic = document.getElementById("connect-img")
+                pic.src = ''
+                d3.selectAll('#connect-img').style('border-width', 0)
             })
             .merge(vis.edges)
 
@@ -172,15 +199,16 @@ class NetworkVis {
                     if (d.name1 === name) {
                         source = d.name2
                         nameDisplay = vis.networkData[networkPrincess].nodes.find(findConnection).nameDisplay
-                        connections += nameDisplay + ": " + d.score + "<br>";
+                        connections += "<div class="+d.name2+"text"+">"+ nameDisplay + ": " + d.score + "</div>";
                     } else if (d.name2 === name) {
                         source = d.name1
                         nameDisplay = vis.networkData[networkPrincess].nodes.find(findConnection).nameDisplay
-                        connections += nameDisplay + ": " + d.score + "<br>";
+                        connections += "<div class="+d.name1+"text"+">"+ nameDisplay + ": " + d.score + "</div>";
                     }
                 });
                 document.getElementById("node-name").innerText = d.nameDisplay;
                 document.getElementById("node-connections").innerHTML = connections;
+                document.getElementById("node-img").src = "img/node-img/" + d.name + '.jpeg'
                 d3.selectAll('.' + name)
                     .transition()
                     .style('opacity', '1')
@@ -215,6 +243,7 @@ class NetworkVis {
             .force('link', d3.forceLink(vis.networkData[networkPrincess].edges).distance(10))
             //.force('center', d3.forceCenter().x(vis.width/2).y(vis.height/2))
             .force('center', d3.forceCenter(vis.width / 2, vis.height / 2))
+            .force('collide', d3.forceCollide(vis.networkData[networkPrincess].nodes.count).iterations(20))
             .force('x', d3.forceX(vis.width / 2).strength(0.0015))
             .force('y', d3.forceY(vis.height / 2).strength(0.0015))
             .on('tick', function(){
@@ -238,16 +267,17 @@ class NetworkVis {
             if (d.name1 === networkPrincess) {
                 source = d.name2
                 nameDisplay = vis.networkData[networkPrincess].nodes.find(findConnection).nameDisplay
-                connections += nameDisplay + ": " + d.score + "<br>";
+                connections += "<div class="+d.name2+"text"+">"+nameDisplay + ": " + d.score + "</div>";
             } else if (d.name2 === networkPrincess) {
                 source = d.name1
                 nameDisplay = vis.networkData[networkPrincess].nodes.find(findConnection).nameDisplay
-                connections += nameDisplay + ": " + d.score + "<br>";
+                connections += "<div class="+d.name1+"text"+">"+nameDisplay + ": " + d.score + "</div>";
             }
         });
 
         document.getElementById("node-name").innerText = networkPrincess;
         document.getElementById("node-connections").innerHTML = connections;
+        document.getElementById("node-img").src = "img/node-img/" + networkPrincess + '.jpeg';
 
         vis.simulation.force('link').links(vis.networkData[networkPrincess].edges);
         vis.simulation.nodes(vis.networkData[networkPrincess].nodes);
