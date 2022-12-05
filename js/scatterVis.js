@@ -152,7 +152,7 @@ class ScatterVis {
 
         vis.svg.append('text')
             .attr('x', vis.width/6*5)
-            .attr('y', vis.height - 40)
+            .attr('y', vis.height - 20)
             .text('PINK: PRINCESS MOVIES')
             .style('fill', '#e75480')
             .style('font-size', '15px')
@@ -160,7 +160,7 @@ class ScatterVis {
 
         vis.svg.append('text')
             .attr('x', vis.width/6*5)
-            .attr('y', vis.height - 40 - 25)
+            .attr('y', vis.height - 20 - 25)
             .text('GREY: NON-PRINCESS MOVIES')
             .style('fill', 'grey')
             .style('font-size', '15px')
@@ -197,7 +197,7 @@ class ScatterVis {
                 if (d.Princess === 'None'){
                     textblock = `<div><\div>`
                 } else {
-                    textblock = `<h3>${d.Princess}</h3>`
+                    textblock = `<h4 style = "font-size:30px">${d.Princess}</h4>`
                 }
                 vis.tooltip
                     .style("opacity", 1)
@@ -291,7 +291,7 @@ class ScatterVis {
             .enter()
             .append('text')
             .attr('class','textDesc')
-            .attr('x', vis.width*6/10)
+            .attr('x', vis.width*5.5/10)
             .attr('y', function(d, i){
                 return vis.height/10*6 + (i-1)*35
             })
