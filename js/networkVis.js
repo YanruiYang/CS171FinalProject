@@ -141,7 +141,7 @@ class NetworkVis {
                     let string2 = diff(string1, 'line')
                     finalString = string2.trim()+'text'
                     d3.selectAll('.'+finalString).style('color', 'red')
-                    document.getElementById("connect-img").href = "img/node-img/" + finalString.replace('text', '') + '.jpeg'
+                    document.getElementById("connect-img").src = "img/node-img/" + finalString.replace('text', '') + '.jpeg'
                     d3.selectAll('#connect-img').style('border', '5px solid red')
                 }
 
@@ -151,7 +151,7 @@ class NetworkVis {
                     .style('stroke', 'grey')
                 d3.selectAll('.'+finalString).style('color', 'black')
                 let pic = document.getElementById("connect-img")
-                pic.href = ''
+                pic.src = ''
                 d3.selectAll('#connect-img').style('border-width', 0)
             })
             .merge(vis.edges)
@@ -208,7 +208,7 @@ class NetworkVis {
                 });
                 document.getElementById("node-name").innerText = d.nameDisplay;
                 document.getElementById("node-connections").innerHTML = connections;
-                document.getElementById("node-img").href = "img/node-img/" + d.name + '.jpeg'
+                document.getElementById("node-img").src = "img/node-img/" + d.name + '.jpeg'
                 d3.selectAll('.' + name)
                     .transition()
                     .style('opacity', '1')
@@ -277,7 +277,7 @@ class NetworkVis {
 
         document.getElementById("node-name").innerText = networkPrincess;
         document.getElementById("node-connections").innerHTML = connections;
-        document.getElementById("node-img").href = "img/node-img/" + networkPrincess + '.jpeg';
+        document.getElementById("node-img").src = "img/node-img/" + networkPrincess + '.jpeg';
 
         vis.simulation.force('link').links(vis.networkData[networkPrincess].edges);
         vis.simulation.nodes(vis.networkData[networkPrincess].nodes);
