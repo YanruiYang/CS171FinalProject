@@ -208,7 +208,7 @@ class NetworkVis {
                 });
                 document.getElementById("node-name").innerText = d.nameDisplay;
                 document.getElementById("node-connections").innerHTML = connections;
-                document.getElementById("node-img").src = "img/node-img/" + d.name + '.jpeg'
+                document.getElementById("node-img").href = "img/node-img/" + d.name + '.jpeg'
                 d3.selectAll('.' + name)
                     .transition()
                     .style('opacity', '1')
