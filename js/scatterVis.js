@@ -126,7 +126,7 @@ class ScatterVis {
             .attr('marker-start', 'url(#arrow1)')
 
         vis.svg.append("line")
-            .attr("x1", 750)
+            .attr("x1", 700)
             .attr("y1", 80)
             .attr("x2", 900)
             .attr("y2", 0)
@@ -146,12 +146,12 @@ class ScatterVis {
             .text('HIGHER Y: HIGHER RATINGS')
 
         vis.svg.append('text')
-            .attr('x', 775)
+            .attr('x', 750)
             .attr('y', 90)
             .text('LARGER RADIUS: MORE REVENUE')
 
         vis.svg.append('text')
-            .attr('x', 0)
+            .attr('x', vis.width - 400)
             .attr('y', vis.height - 40)
             .text('PINK: PRINCESS MOVIES')
             .style('fill', '#e75480')
@@ -159,7 +159,7 @@ class ScatterVis {
 
 
         vis.svg.append('text')
-            .attr('x', 0)
+            .attr('x', vis.width - 400)
             .attr('y', vis.height - 40 - 25)
             .text('GREY: NON-PRINCESS MOVIES ')
             .style('fill', 'grey')
@@ -285,14 +285,14 @@ class ScatterVis {
             .enter()
             .append('text')
             .attr('class','textDesc')
-            .attr('x', vis.width - 900)
+            .attr('x', vis.width - 800)
             .attr('y', function(d, i){
-                return vis.height - 375 + (i-1)*50
+                return vis.height - 375 + (i-1)*40
             })
             .text(function(d){
                 return d.split('-')[0]
             })
-            .style('font-size', '40px')
+            .style('font-size', '30px')
             .append('tspan')
             .style('stroke', 'red')
             .style('stroke-width', '1px')
@@ -300,13 +300,13 @@ class ScatterVis {
             .text(function(d){
                 return d.split('-')[1]
             })
-            .style('font-size', '50px')
+            .style('font-size', '40px')
             .append('tspan')
             .style('fill', 'black')
             .text(function(d){
                 return d.split('-')[2]
             })
-            .style('font-size', '40px')
+            .style('font-size', '30px')
             .style('stroke-width', '0px')
 
         vis.textDesc.exit().remove();
